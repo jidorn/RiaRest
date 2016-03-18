@@ -1,9 +1,6 @@
 package fr.afcepf.al26.ria.rest;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -53,5 +50,35 @@ public class PremierService {
             @PathParam(value = "p2") String param2
     ) {
         return "Rest In Peace : " + param1 + ", " + param2;
+    }
+
+    @GET
+    @Path("/totoXml/{id}/{nom}/{prenom}")
+    @Produces(MediaType.TEXT_XML)
+    public Toto getTotoXml(
+            @PathParam(value = "id") int paramId,
+            @PathParam(value = "nom") String paramNom,
+            @PathParam(value = "prenom") String paramPrenom) {
+        return new Toto(paramId,paramNom,paramPrenom);
+    }
+
+    @GET
+    @Path("/totoJSON/{id}/{nom}/{prenom}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Toto getTotoJson(
+            @PathParam(value = "id") int paramId,
+            @PathParam(value = "nom") String paramNom,
+            @PathParam(value = "prenom") String paramPrenom) {
+        return new Toto(paramId,paramNom,paramPrenom);
+    }
+
+    @POST
+    @Path("/formattoto")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Toto formatToto(Toto paramToto){
+        paramToto.setNom(paramToto.getNom().toUpperCase());
+        paramToto.setPrenom(paramToto.getPrenom().toUpperCase());
+        return paramToto;
     }
 }
