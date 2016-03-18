@@ -7,7 +7,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 /**
- * Created by Stagiaire on 18/03/2016.
+ * classe rest.
  */
 @Path("/premier")
 public class PremierService {
@@ -28,7 +28,7 @@ public class PremierService {
      * test.
      *
      * @param param1 test.
-     * @return
+     * @return param.
      */
     @GET
     @Path("/hello/{p1}")
@@ -43,7 +43,7 @@ public class PremierService {
      *
      * @param param1 test.
      * @param param2 test.
-     * @return
+     * @return string.
      */
     @GET
     @Path("/hello/{p1}/{p2}")
