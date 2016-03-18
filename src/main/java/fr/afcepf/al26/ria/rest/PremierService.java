@@ -14,30 +14,44 @@ public class PremierService {
 
     /**
      * hello.
+     *
      * @return hello.
      */
     @GET
     @Path("/hello")
     @Produces(MediaType.TEXT_PLAIN)
-    public String helloWorld(){
+    public String helloWorld() {
         return "Rest In Peace";
     }
 
+    /**
+     * test.
+     *
+     * @param param1 test.
+     * @return
+     */
     @GET
     @Path("/hello/{p1}")
     @Produces(MediaType.TEXT_PLAIN)
     public String testParam(
-            @PathParam(value = "p1") String param1){
-        return "Rest In Peace"+ param1;
+            @PathParam(value = "p1") String param1) {
+        return "Rest In Peace" + param1;
     }
 
+    /**
+     * test.
+     *
+     * @param param1 test.
+     * @param param2 test.
+     * @return
+     */
     @GET
     @Path("/hello/{p1}/{p2}")
     @Produces(MediaType.TEXT_PLAIN)
     public String testParam(
             @PathParam(value = "p1") String param1,
             @PathParam(value = "p2") String param2
-    ){
-        return "Rest In Peace : "+ param1+", "+param2;
+    ) {
+        return "Rest In Peace : " + param1 + ", " + param2;
     }
 }
